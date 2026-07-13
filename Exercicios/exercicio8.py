@@ -12,11 +12,22 @@ carros = [{'Marca':'chevrolet','Modelo':'Cruze','Ano':2017,'Preco':51500},
           {'Marca':'honda','Modelo':'Civic','Ano':2014,'Preco':71000},
 ]
 
-# Filtrando os carros da marca chevrolet com a função lambda
+# Filtrando os carros da marca chevrolet com a funcao lambda
 carros_chevrolet = list(filter(lambda carro: carro['Marca'] == 'chevrolet', carros))
 
 # Ordenando os carros do maior preço para o menor
 carros_chevrolet.sort(key=lambda x: x['Preco'],reverse=True)
-print(*carros_chevrolet,sep='\n')
 
-print('-'*60)
+for carro in carros_chevrolet:
+    print(*carro.values())
+
+# Filtrando os carros da marca ford com list comprehension
+ford = list(nome for nome in carros if nome['Marca'] == 'ford')
+
+# Ordenando os carros do maior preço para o menor
+ford.sort(key=lambda nome: nome['Preco'], reverse=True)
+
+print('-'*75)
+
+for carro in ford:
+    print(*carro.values())
