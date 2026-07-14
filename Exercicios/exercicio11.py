@@ -5,6 +5,10 @@ jogadores = dict()
 gols_lista = list()
 time = list()
 
+# Funcao para imprimir uma linha colorida
+def linha():
+    print('\033[1;34m=-\033[m'*30)
+
 
 while True:
     jogadores['nome'] = input('Nome do Jogador: ').title()
