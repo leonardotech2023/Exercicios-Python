@@ -50,19 +50,22 @@ for chave, valor in enumerate(time):
     
 
 while True:
-    opcao = int(input('Mostrar dados de qual jogador? (999 para parar): '))
 
-    if  opcao == 999:
-        sleep(1)
-        print('Saindo...')
-        break
-    elif opcao != 999:
-        
-        linha()
-        
-        print(f' -- LEVANTAMENTO DO JOGADOR: {time[opcao]["nome"]}')
-        for jogo, gol in enumerate(time[opcao]['gols']):
+    try:
+        opcao = int(input('Mostrar dados de qual jogador? (999 para parar): '))
+
+        if  opcao == 999:
             sleep(1)
-            print(f'\tNo jogo {jogo} fez {gol} gols.')
-        
-        linha()
+            print('Saindo...')
+            break
+        elif opcao != 999:         
+    
+            print(f' -- LEVANTAMENTO DO JOGADOR: {time[opcao]["nome"]}')
+            for jogo, gol in enumerate(time[opcao]['gols']):
+                sleep(1)
+                print(f'\tNo jogo {jogo} fez {gol} gols.')
+            
+            linha()
+
+    except (IndexError,ValueError):
+        print('\033[1;31mVALOR INVALIDO, TENTE NOVAMENTE!\033[m')
