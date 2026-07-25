@@ -37,9 +37,11 @@ for valor in vendas:
 maior_valor = 0
 
 for nome, valor in vendedores.items():
+
     if maior_valor == 0:
         maior_valor = valor
         vendedor_mais_vendeu = (nome, valor)
+        
     else:
         if maior_valor < valor:
             maior_valor = valor
